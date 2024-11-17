@@ -4,6 +4,7 @@ using MMBlog.EFCore.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MMBlog.EFCore.Migrations
 {
     [DbContext(typeof(MBlogDbContext))]
-    partial class MBlogDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241117223226_MyTODOsTablesCreate")]
+    partial class MyTODOsTablesCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,38 +24,6 @@ namespace MMBlog.EFCore.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("MMBlog.EFCore.Entities.Concrete.InstanceMerak", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DeletedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<bool?>("IsSolved")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("MerakName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("InstanceMeraks");
-                });
 
             modelBuilder.Entity("MMBlog.EFCore.Entities.Concrete.MusicList", b =>
                 {
@@ -86,7 +57,7 @@ namespace MMBlog.EFCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MusicLists");
+                    b.ToTable("_musicList");
                 });
 
             modelBuilder.Entity("MMBlog.EFCore.Entities.Concrete.MyTODOs", b =>
@@ -121,7 +92,7 @@ namespace MMBlog.EFCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("MyTODOs");
+                    b.ToTable("_myTODOs");
                 });
 
             modelBuilder.Entity("MMBlog.EFCore.Entities.Concrete.Page3CheckBox", b =>
@@ -153,7 +124,7 @@ namespace MMBlog.EFCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Page3CheckBoxes");
+                    b.ToTable("_page3CheckBoxes");
                 });
 
             modelBuilder.Entity("MMBlog.EFCore.Entities.Concrete.Page6AllQAs", b =>
@@ -186,7 +157,7 @@ namespace MMBlog.EFCore.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Page6AllQAs");
+                    b.ToTable("_page6AllQAs");
                 });
 #pragma warning restore 612, 618
         }
